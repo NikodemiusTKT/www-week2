@@ -17,19 +17,21 @@ const Square = ({
   const style = {
     border: '1px solid black',
     display: 'table-cell',
+    outline: 'none',
+    color: 'transparent',
+    textShadow: '0 0 0 black',
     verticalAlign: 'center',
     height: squareSize,
     width: squareSize,
     fontSize: '30px',
       fontFamily: 'Helvetica',
-      cursor: 'pointer'
   }
   if (value === 'x')
     style.backgroundColor = 'rgb(124,252,0)'
   else if (value === 'o')
     style.backgroundColor = 'rgb(250,128,114)'
   return (
-    <td style={style} valign='middle' onClick={() => onClick(indexes)} >
+    <td readonly="readonly" style={style} valign='middle' onClick={() => onClick(indexes)} >
     {value}
     </td>
   );

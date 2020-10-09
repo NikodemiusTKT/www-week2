@@ -51490,15 +51490,18 @@ var Square = function Square(_ref) {
   var style = {
     border: '1px solid black',
     display: 'table-cell',
+    outline: 'none',
+    color: 'transparent',
+    textShadow: '0 0 0 black',
     verticalAlign: 'center',
     height: squareSize,
     width: squareSize,
     fontSize: '30px',
-    fontFamily: 'Helvetica',
-    cursor: 'pointer'
+    fontFamily: 'Helvetica'
   };
   if (value === 'x') style.backgroundColor = 'rgb(124,252,0)';else if (value === 'o') style.backgroundColor = 'rgb(250,128,114)';
   return _react.default.createElement("td", {
+    readonly: "readonly",
     style: style,
     valign: "middle",
     onClick: function onClick() {
@@ -52400,7 +52403,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39167" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44177" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
