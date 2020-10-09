@@ -140,6 +140,7 @@ class App extends Component {
   }
 // Function for changing player and updating progres bar value after 10 seconds
   progressionTimer = () => {
+    console.log(this.state.timerValue)
     if (this.state.timerValue == 100) {
       const nextPlayer = this.state.currentPlayer === 'x' ? 'o' : 'x';
       var newTimer = clearInterval(this.state.timer);
@@ -155,7 +156,6 @@ class App extends Component {
     }
   }
   turnChangeTimer = () => {
-    clearInterval(this.state.timer)
     const startTimer = setInterval(this.progressionTimer,1000)
     this.setState({timerValue: 0, timer: startTimer})
   }
