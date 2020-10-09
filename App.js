@@ -158,11 +158,17 @@ class App extends Component {
     }
   }
   turnChangeTimer = () => {
+<<<<<<< HEAD
     this.setState({timer: clearInterval(this.state.timer)})
       this.setState({
           timerValue: 0,
           timer: setInterval(this.progressionTimer,1000)
       })
+=======
+      clearInterval(this.state.timer);
+    const startTimer = setInterval(this.progressionTimer,1000)
+    this.setState({timerValue: 0, timer: startTimer})
+>>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
   }
   handleClick = ({rowIndex, colIndex}) => {
     const { currentPlayer, grid, gameOver,winLimit } = this.state
@@ -204,6 +210,7 @@ class App extends Component {
     return (
       <div>
       <h1>React.js Tic-Tac-Toe</h1>
+<<<<<<< HEAD
             <Board
         onClick={this.handleClick}
         rows={grid}
@@ -211,6 +218,9 @@ class App extends Component {
         isGameOver={this.state.gameOver}
         squareSize={this.state.squareSize}
             />
+=======
+            <Board onClick={this.handleClick} rows={grid} timerValue={this.state.timerValue} isGameOver={this.state.gameOver}/>
+>>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
       <button style={{marginTop:"10px"}} onClick={this.resetGame}>Reset</button>
         <select value={this.state.boardSize} onChange={this.changeGridSize}>
           {this.state.options.map((opt, index) =>
