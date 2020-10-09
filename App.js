@@ -86,18 +86,18 @@ const compareToRest = ({ currentItem, gridItems, winString }) => {
     const arrays = [N, NE, E, SE, S, SW, W, NW];
     const winningArrays = arrays.filter(arr => arr.length >= winString);
     return winningArrays.length > 0;
-  }
+  };
+    let hasWon = false;
+    let i = 0;
 
-  let hasWon = false;
-  let i = 0;
+    while (i < gridItems.length && !hasWon) {
+        hasWon = applyDirection(gridItems[i]);
+        i++;
+    }
 
-  while (i < gridItems.length && !hasWon) {
-    hasWon = applyDirection(gridItems[i]);
-    i++;
-  }
+    return hasWon;
+};
 
-  return hasWon;
-}
 
 const checkWin = ({ gridItems, winString }) => {
   let hasWon = false;
@@ -140,15 +140,14 @@ class App extends Component {
   }
 // Function for changing player and updating progres bar value after 10 seconds
   progressionTimer = () => {
-    console.log(this.state.timerValue)
     if (this.state.timerValue == 100) {
-      const nextPlayer = this.state.currentPlayer === 'x' ? 'o' : 'x';
-      var newTimer = clearInterval(this.state.timer);
-      this.setState({
-        currentPlayer: nextPlayer,
-        timerValue: 0,
-        timer: newTimer
-      });
+        const nextPlayer = this.state.currentPlayer === 'x' ? 'o' : 'x';
+        this.setState({
+            currentPlayer: nextPlayer,
+            timerValue: 0,
+            timer: clearInterval(this.state.timer)
+        })
+        this.setState({timer: setInterval(this.progressionTimer,1000)})
     } else {
       this.setState({
         timerValue: this.state.timerValue + 10,
@@ -156,6 +155,7 @@ class App extends Component {
     }
   }
   turnChangeTimer = () => {
+      clearInterval(this.state.timer);
     const startTimer = setInterval(this.progressionTimer,1000)
     this.setState({timerValue: 0, timer: startTimer})
   }
@@ -167,15 +167,16 @@ class App extends Component {
       cloneGrid[rowIndex][colIndex] = currentPlayer;
       const gridItems = mapGridIndexes({grid: cloneGrid, value: currentPlayer})
       const hasWon = checkWin({gridItems, winString: winLimit})
-      this.turnChangeTimer();
+      if (!hasWon) this.turnChangeTimer();
       this.setState({
         currentPlayer: nextPlayer,
         grid: cloneGrid,
         gameOver: hasWon,
       })
-      if (hasWon)
-
-      alert(`Player ${currentPlayer === 'x' ? 1 : 2} won!`)
+        if (hasWon) {
+            clearInterval(this.state.timer);
+            alert(`Player ${currentPlayer === 'x' ? 1 : 2} won!`)
+        }
     }
   }
   resetGame = () => {
@@ -198,7 +199,7 @@ class App extends Component {
     return (
       <div>
       <h1>React.js Tic-Tac-Toe</h1>
-        <Board onClick={this.handleClick} rows={grid} timerValue={this.state.timerValue}/>
+            <Board onClick={this.handleClick} rows={grid} timerValue={this.state.timerValue} isGameOver={this.state.gameOver}/>
       <button style={{marginTop:"10px"}} onClick={this.resetGame}>Reset</button>
         <select value={this.state.boardSize} onChange={this.changeGridSize}>
           {this.state.options.map((opt, index) =>
