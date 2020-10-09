@@ -20,11 +20,8 @@ const Loadbar = ({value,width}) => {
     <div>
           <p>Changing turn in {10-value/10} seconds</p>
     <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
-<<<<<<< HEAD
           <div className={loadbarBgStyle} style={{width: width}}>
-=======
     <div className={loadbarBgStyle}>
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
           <div className={loadbarStyle} style={{ width: value + '%' }}>{value}%</div>
     </div>
       </div>
