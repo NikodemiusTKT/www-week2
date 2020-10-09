@@ -163,9 +163,6 @@ class App extends Component {
           timerValue: 0,
           timer: setInterval(this.progressionTimer,1000)
       })
-      clearInterval(this.state.timer);
-    const startTimer = setInterval(this.progressionTimer,1000)
-    this.setState({timerValue: 0, timer: startTimer})
   }
   handleClick = ({rowIndex, colIndex}) => {
     const { currentPlayer, grid, gameOver,winLimit } = this.state
@@ -211,10 +208,8 @@ class App extends Component {
         onClick={this.handleClick}
         rows={grid}
         timerValue={this.state.timerValue}
-        isGameOver={this.state.gameOver}
         squareSize={this.state.squareSize}
             />
-            <Board onClick={this.handleClick} rows={grid} timerValue={this.state.timerValue} isGameOver={this.state.gameOver}/>
       <button style={{marginTop:"10px"}} onClick={this.resetGame}>Reset</button>
         <select value={this.state.boardSize} onChange={this.changeGridSize}>
           {this.state.options.map((opt, index) =>

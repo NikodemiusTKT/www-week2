@@ -51641,12 +51641,8 @@ var loadbarStyle = (0, _emotion.css)({
 });
 
 var Loadbar = function Loadbar(_ref) {
-<<<<<<< HEAD
   var value = _ref.value,
       width = _ref.width;
-=======
-  var value = _ref.value;
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
   return _react.default.createElement("div", null, _react.default.createElement("p", null, "Changing turn in ", 10 - value / 10, " seconds"), _react.default.createElement("div", {
     style: {
       display: 'flex',
@@ -51815,7 +51811,6 @@ var Board = function Board(_ref) {
   var rows = _ref.rows,
       onClick = _ref.onClick,
       timerValue = _ref.timerValue,
-<<<<<<< HEAD
       squareSize = _ref.squareSize;
 
   var _useState = (0, _react.useState)(0),
@@ -51832,11 +51827,6 @@ var Board = function Board(_ref) {
   }, _react.default.createElement(_Loadbar.default, {
     value: timerValue,
     width: width
-=======
-      isGameOver = _ref.isGameOver;
-  return _react.default.createElement("div", null, _react.default.createElement(_Loadbar.default, {
-    value: (isGameOver, timerValue)
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
   }), _react.default.createElement("table", {
     ref: ref,
     id: "board",
@@ -52175,14 +52165,9 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "turnChangeTimer", function () {
-<<<<<<< HEAD
       _this.setState({
         timer: clearInterval(_this.state.timer)
       });
-=======
-      clearInterval(_this.state.timer);
-      var startTimer = setInterval(_this.progressionTimer, 1000);
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
 
       _this.setState({
         timerValue: 0,
@@ -52274,12 +52259,7 @@ function (_Component) {
         onClick: this.handleClick,
         rows: grid,
         timerValue: this.state.timerValue,
-<<<<<<< HEAD
-        isGameOver: this.state.gameOver,
         squareSize: this.state.squareSize
-=======
-        isGameOver: this.state.gameOver
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
       }), _react.default.createElement("button", {
         style: {
           marginTop: "10px"
@@ -52325,11 +52305,8 @@ exports.default = _default2;
   reactHotLoader.register(ROW_ARR, "ROW_ARR", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
   reactHotLoader.register(COL_ARR, "COL_ARR", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
   reactHotLoader.register(GRID, "GRID", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-<<<<<<< HEAD
   reactHotLoader.register(OPTIONS, "OPTIONS", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
   reactHotLoader.register(SQUARE, "SQUARE", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-=======
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
   reactHotLoader.register(appStyle, "appStyle", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
   reactHotLoader.register(START_STATE, "START_STATE", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
   reactHotLoader.register(diffCols, "diffCols", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
@@ -52423,11 +52400,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39139" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32787" + '/');
->>>>>>> ebef44b13fda0da8511355462445caa2d7edee9f
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
