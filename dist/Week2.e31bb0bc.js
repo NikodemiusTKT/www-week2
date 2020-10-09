@@ -32293,7 +32293,7 @@ exports.merge = merge;
 exports.cx = cx;
 exports.hydrate = hydrate;
 exports.flush = flush;
-},{"create-emotion":"node_modules/create-emotion/dist/create-emotion.browser.esm.js"}],"../../../../../.node_modules/lib/node_modules/parcel/node_modules/base64-js/index.js":[function(require,module,exports) {
+},{"create-emotion":"node_modules/create-emotion/dist/create-emotion.browser.esm.js"}],"node_modules/base64-js/index.js":[function(require,module,exports) {
 'use strict'
 
 exports.byteLength = byteLength
@@ -32447,7 +32447,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],"../../../../../.node_modules/lib/node_modules/parcel/node_modules/ieee754/index.js":[function(require,module,exports) {
+},{}],"node_modules/ieee754/index.js":[function(require,module,exports) {
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -32533,14 +32533,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],"../../../../../.node_modules/lib/node_modules/parcel/node_modules/isarray/index.js":[function(require,module,exports) {
+},{}],"node_modules/isarray/index.js":[function(require,module,exports) {
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],"../../../../../.node_modules/lib/node_modules/parcel/node_modules/buffer/index.js":[function(require,module,exports) {
+},{}],"node_modules/buffer/index.js":[function(require,module,exports) {
 
 var global = arguments[3];
 /*!
@@ -34333,7 +34333,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-},{"base64-js":"../../../../../.node_modules/lib/node_modules/parcel/node_modules/base64-js/index.js","ieee754":"../../../../../.node_modules/lib/node_modules/parcel/node_modules/ieee754/index.js","isarray":"../../../../../.node_modules/lib/node_modules/parcel/node_modules/isarray/index.js","buffer":"../../../../../.node_modules/lib/node_modules/parcel/node_modules/buffer/index.js"}],"node_modules/lodash/lodash.js":[function(require,module,exports) {
+},{"base64-js":"node_modules/base64-js/index.js","ieee754":"node_modules/ieee754/index.js","isarray":"node_modules/isarray/index.js","buffer":"node_modules/buffer/index.js"}],"node_modules/lodash/lodash.js":[function(require,module,exports) {
 var global = arguments[3];
 var Buffer = require("buffer").Buffer;
 var define;
@@ -51450,7 +51450,7 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"../../../../../.node_modules/lib/node_modules/parcel/node_modules/buffer/index.js"}],"components/Square.js":[function(require,module,exports) {
+},{"buffer":"node_modules/buffer/index.js"}],"components/Square.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51475,7 +51475,7 @@ var Square = function Square(_ref) {
   var value = _ref.value,
       colIndex = _ref.colIndex,
       rowIndex = _ref.rowIndex,
-      size = _ref.size,
+      squareSize = _ref.squareSize,
       _onClick = _ref.onClick;
   var player1Style = {
     backgroundColor: 'rgb(124,252,0)'
@@ -51491,10 +51491,11 @@ var Square = function Square(_ref) {
     border: '1px solid black',
     display: 'table-cell',
     verticalAlign: 'center',
-    height: '60px',
-    width: '60px',
+    height: squareSize,
+    width: squareSize,
     fontSize: '30px',
-    fontFamily: 'Helvetica'
+    fontFamily: 'Helvetica',
+    cursor: 'pointer'
   };
   if (value === 'x') style.backgroundColor = 'rgb(124,252,0)';else if (value === 'o') style.backgroundColor = 'rgb(250,128,114)';
   return _react.default.createElement("td", {
@@ -51518,8 +51519,8 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(Square, "Square", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Square.js");
-  reactHotLoader.register(_default, "default", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Square.js");
+  reactHotLoader.register(Square, "Square", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Square.js");
+  reactHotLoader.register(_default, "default", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Square.js");
 })();
 
 ;
@@ -51561,7 +51562,8 @@ var Row = function Row(_ref) {
   var squares = _ref.squares,
       rowIndex = _ref.rowIndex,
       onClick = _ref.onClick,
-      currentPlayer = _ref.currentPlayer;
+      currentPlayer = _ref.currentPlayer,
+      squareSize = _ref.squareSize;
   var rowStyle = (0, _emotion.css)({// display: 'flex',
     // justifyContent: 'center'
   });
@@ -51571,7 +51573,7 @@ var Row = function Row(_ref) {
       colIndex: index,
       rowIndex: rowIndex,
       key: index,
-      size: 60,
+      squareSize: squareSize,
       onClick: onClick
     });
   }));
@@ -51589,8 +51591,8 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(Row, "Row", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Row.js");
-  reactHotLoader.register(_default, "default", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Row.js");
+  reactHotLoader.register(Row, "Row", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Row.js");
+  reactHotLoader.register(_default, "default", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Row.js");
 })();
 
 ;
@@ -51639,21 +51641,25 @@ var loadbarStyle = (0, _emotion.css)({
 });
 
 var Loadbar = function Loadbar(_ref) {
-  var value = _ref.value;
-  return _react.default.createElement("div", null, _react.default.createElement("h3", null, "Changing turn in..."), _react.default.createElement("div", {
+  var value = _ref.value,
+      width = _ref.width;
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Changing turn in ", 10 - value / 10, " seconds"), _react.default.createElement("div", {
     style: {
       display: 'flex',
       alignContent: 'center',
       justifyContent: 'center'
     }
   }, _react.default.createElement("div", {
-    className: loadbarBgStyle
+    className: loadbarBgStyle,
+    style: {
+      width: width
+    }
   }, _react.default.createElement("div", {
     className: loadbarStyle,
     style: {
       width: value + '%'
     }
-  }, value / 10, "s"))));
+  }, value, "%"))));
 };
 
 var _default = Loadbar;
@@ -51668,10 +51674,10 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(loadbarBgStyle, "loadbarBgStyle", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
-  reactHotLoader.register(loadbarStyle, "loadbarStyle", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
-  reactHotLoader.register(Loadbar, "Loadbar", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
-  reactHotLoader.register(_default, "default", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
+  reactHotLoader.register(loadbarBgStyle, "loadbarBgStyle", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
+  reactHotLoader.register(loadbarStyle, "loadbarStyle", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
+  reactHotLoader.register(Loadbar, "Loadbar", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
+  reactHotLoader.register(_default, "default", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Loadbar.js");
 })();
 
 ;
@@ -51680,7 +51686,7 @@ exports.default = _default2;
   var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
   leaveModule && leaveModule(module);
 })();
-},{"react":"node_modules/react/index.js","emotion":"node_modules/emotion/dist/emotion.esm.js"}],"../../../../../.node_modules/lib/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","emotion":"node_modules/emotion/dist/emotion.esm.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -51712,7 +51718,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../../../.node_modules/lib/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -51747,7 +51753,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../.node_modules/lib/node_modules/parcel/src/builtins/bundle-url.js"}],"components/Board.css":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"components/Board.css":[function(require,module,exports) {
 var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
   return a;
 };
@@ -51756,7 +51762,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../.node_modules/lib/node_modules/parcel/src/builtins/css-loader.js"}],"components/Board.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Board.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51785,29 +51791,44 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   enterModule && enterModule(module);
 })();
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 var __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default.signature : function (a) {
   return a;
 };
 
 var boardStyle = (0, _emotion.css)({
-  marginTop: '20px' // border: '1px solid black',
-  //  borderCollapse: 'collapse',
-  //   textAlign: 'center',
-  //   display: 'flex',
-  //   alignContent: 'center',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // width: '50%'
-
+  marginTop: '20px'
 });
 
 var Board = function Board(_ref) {
   var rows = _ref.rows,
       onClick = _ref.onClick,
-      timerValue = _ref.timerValue;
-  return _react.default.createElement("div", null, _react.default.createElement(_Loadbar.default, {
-    value: timerValue
+      timerValue = _ref.timerValue,
+      squareSize = _ref.squareSize;
+
+  var _useState = (0, _react.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      width = _useState2[0],
+      setWidth = _useState2[1];
+
+  var ref = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
+    setWidth(ref.current.clientWidth);
+  });
+  return _react.default.createElement("div", {
+    className: boardStyle
+  }, _react.default.createElement(_Loadbar.default, {
+    value: timerValue,
+    width: width
   }), _react.default.createElement("table", {
+    ref: ref,
     id: "board",
     cellSpacing: "0",
     cellPadding: "0",
@@ -51817,10 +51838,13 @@ var Board = function Board(_ref) {
       key: index,
       rowIndex: index,
       squares: row,
-      onClick: onClick
+      onClick: onClick,
+      squareSize: squareSize
     });
   }))));
 };
+
+__signature__(Board, "useState{[width, setWidth](0)}\nuseRef{ref}\nuseEffect{}");
 
 var _default = Board;
 var _default2 = _default;
@@ -51834,9 +51858,9 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(boardStyle, "boardStyle", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
-  reactHotLoader.register(Board, "Board", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
-  reactHotLoader.register(_default, "default", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
+  reactHotLoader.register(boardStyle, "boardStyle", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
+  reactHotLoader.register(Board, "Board", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
+  reactHotLoader.register(_default, "default", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/components/Board.js");
 })();
 
 ;
@@ -51854,7 +51878,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../.node_modules/lib/node_modules/parcel/src/builtins/css-loader.js"}],"App.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -51863,6 +51887,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+var _reactDom = require("react-dom");
 
 var _emotion = require("emotion");
 
@@ -51923,16 +51949,21 @@ var COL_ARR = new Array(COLS).fill(null);
 var GRID = ROW_ARR.map(function (x) {
   return COL_ARR.slice();
 });
+var OPTIONS = 12;
+var SQUARE = 60;
 var appStyle = (0, _emotion.css)({
   textAlign: 'center'
 });
 var START_STATE = {
+  squareSize: SQUARE,
   currentPlayer: 'x',
   grid: (0, _lodash.cloneDeep)(GRID),
   gameOver: false,
-  winLimit: 5,
-  boardSize: 5,
-  options: [3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14],
+  winLimit: MIN_TO_WIN,
+  boardSize: MIN_TO_WIN,
+  options: Array.from(new Array(OPTIONS), function (x, i) {
+    return i + 3;
+  }),
   timerValue: 0,
   timer: null
 }; // Calculate differences between the current item and the last item
@@ -52114,16 +52145,17 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "progressionTimer", function () {
-      console.log(_this.state.timerValue);
-
       if (_this.state.timerValue == 100) {
         var nextPlayer = _this.state.currentPlayer === 'x' ? 'o' : 'x';
-        var newTimer = clearInterval(_this.state.timer);
 
         _this.setState({
           currentPlayer: nextPlayer,
           timerValue: 0,
-          timer: newTimer
+          timer: clearInterval(_this.state.timer)
+        });
+
+        _this.setState({
+          timer: setInterval(_this.progressionTimer, 1000)
         });
       } else {
         _this.setState({
@@ -52133,11 +52165,13 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "turnChangeTimer", function () {
-      var startTimer = setInterval(_this.progressionTimer, 1000);
+      _this.setState({
+        timer: clearInterval(_this.state.timer)
+      });
 
       _this.setState({
         timerValue: 0,
-        timer: startTimer
+        timer: setInterval(_this.progressionTimer, 1000)
       });
     });
 
@@ -52162,8 +52196,7 @@ function (_Component) {
           gridItems: gridItems,
           winString: winLimit
         });
-
-        _this.turnChangeTimer();
+        if (!hasWon) _this.turnChangeTimer();
 
         _this.setState({
           currentPlayer: nextPlayer,
@@ -52171,7 +52204,10 @@ function (_Component) {
           gameOver: hasWon
         });
 
-        if (hasWon) alert("Player ".concat(currentPlayer === 'x' ? 1 : 2, " won!"));
+        if (hasWon) {
+          clearInterval(_this.state.timer);
+          alert("Player ".concat(currentPlayer === 'x' ? 1 : 2, " won!"));
+        }
       }
     });
 
@@ -52222,7 +52258,9 @@ function (_Component) {
       return _react.default.createElement("div", null, _react.default.createElement("h1", null, "React.js Tic-Tac-Toe"), _react.default.createElement(_Board.default, {
         onClick: this.handleClick,
         rows: grid,
-        timerValue: this.state.timerValue
+        timerValue: this.state.timerValue,
+        isGameOver: this.state.gameOver,
+        squareSize: this.state.squareSize
       }), _react.default.createElement("button", {
         style: {
           marginTop: "10px"
@@ -52262,23 +52300,25 @@ exports.default = _default2;
     return;
   }
 
-  reactHotLoader.register(ROWS, "ROWS", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(COLS, "COLS", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(MIN_TO_WIN, "MIN_TO_WIN", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(ROW_ARR, "ROW_ARR", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(COL_ARR, "COL_ARR", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(GRID, "GRID", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(appStyle, "appStyle", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(START_STATE, "START_STATE", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(diffCols, "diffCols", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(diffRows, "diffRows", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(flattenAndFilterArray, "flattenAndFilterArray", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(mapGridIndexes, "mapGridIndexes", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(compareToRest, "compareToRest", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(checkWin, "checkWin", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(make2DArray, "make2DArray", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(App, "App", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
-  reactHotLoader.register(_default, "default", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(ROWS, "ROWS", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(COLS, "COLS", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(MIN_TO_WIN, "MIN_TO_WIN", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(ROW_ARR, "ROW_ARR", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(COL_ARR, "COL_ARR", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(GRID, "GRID", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(OPTIONS, "OPTIONS", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(SQUARE, "SQUARE", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(appStyle, "appStyle", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(START_STATE, "START_STATE", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(diffCols, "diffCols", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(diffRows, "diffRows", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(flattenAndFilterArray, "flattenAndFilterArray", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(mapGridIndexes, "mapGridIndexes", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(compareToRest, "compareToRest", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(checkWin, "checkWin", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(make2DArray, "make2DArray", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(App, "App", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
+  reactHotLoader.register(_default, "default", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/App.js");
 })();
 
 ;
@@ -52287,7 +52327,7 @@ exports.default = _default2;
   var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
   leaveModule && leaveModule(module);
 })();
-},{"react":"node_modules/react/index.js","emotion":"node_modules/emotion/dist/emotion.esm.js","lodash":"node_modules/lodash/lodash.js","./components/Board":"components/Board.js","./App.css":"App.css"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","emotion":"node_modules/emotion/dist/emotion.esm.js","lodash":"node_modules/lodash/lodash.js","./components/Board":"components/Board.js","./App.css":"App.css"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -52324,7 +52364,7 @@ _reactDom.default.render(_react.default.createElement(_App.default, null), mount
     return;
   }
 
-  reactHotLoader.register(mountNode, "mountNode", "/home/tkt/Dropbox/Koulu/Lukuvuosi_19-20/WWW/Week2/index.js");
+  reactHotLoader.register(mountNode, "mountNode", "/home/tkt/OneDrive/Koulu/Lukuvuosi_19-20/WWW/Week2/index.js");
 })();
 
 ;
@@ -52333,7 +52373,7 @@ _reactDom.default.render(_react.default.createElement(_App.default, null), mount
   var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;
   leaveModule && leaveModule(module);
 })();
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./App":"App.js"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./App":"App.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -52361,7 +52401,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33647" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39139" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -52536,5 +52576,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/Week2.e31bb0bc.js.map

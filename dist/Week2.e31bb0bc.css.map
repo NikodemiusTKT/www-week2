@@ -1,1 +1,1 @@
-{"version":3,"sources":["components/Board.css","App.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;ACHA;AACA;AACA","file":"Week2.e31bb0bc.css","sourceRoot":"..","sourcesContent":["table {\n  border-collapse: collapse;\n  border: 1px solid black;\n}"," * {\n  text-align: center\n}"]}
+{"version":3,"sources":["components/Board.css","App.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;ACJA;AACA;AACA","file":"Week2.e31bb0bc.css","sourceRoot":"..","sourcesContent":["table {\n  border-collapse: collapse;\n  border: 1px solid black;\n}\n"," * {\n  text-align: center\n}"]}

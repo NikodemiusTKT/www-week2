@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {css } from 'emotion'
 import Square from './Square';
 
-const Row = ({squares,rowIndex,onClick,currentPlayer}) => {
+const Row = ({squares,rowIndex,onClick,currentPlayer,squareSize}) => {
   const rowStyle = css({
     // display: 'flex',
     // justifyContent: 'center'
@@ -16,7 +16,7 @@ const Row = ({squares,rowIndex,onClick,currentPlayer}) => {
           colIndex={index}
           rowIndex={rowIndex}
           key={index}
-          size={60}
+          squareSize={squareSize}
           onClick={onClick}
         />
       })}

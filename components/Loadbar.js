@@ -15,13 +15,13 @@ const loadbarStyle = css({
   fontWeight: 'bold'
 })
 
-const Loadbar = ({value}) => {
+const Loadbar = ({value,width}) => {
   return (
     <div>
-    <h3>Changing turn in...</h3>
+          <p>Changing turn in {10-value/10} seconds</p>
     <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center'}}>
-    <div className={loadbarBgStyle}>
-          <div className={loadbarStyle} style={{ width: value + '%' }}>{value/10}s</div>
+          <div className={loadbarBgStyle} style={{width: width}}>
+          <div className={loadbarStyle} style={{ width: value + '%' }}>{value}%</div>
     </div>
       </div>
     </div>

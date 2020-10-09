@@ -4,7 +4,7 @@ const Square = ({
   value,
   colIndex,
   rowIndex,
-  size,
+  squareSize,
   onClick,
 }) => {
   const player1Style = {
@@ -18,10 +18,11 @@ const Square = ({
     border: '1px solid black',
     display: 'table-cell',
     verticalAlign: 'center',
-    height: '60px',
-    width: '60px',
+    height: squareSize,
+    width: squareSize,
     fontSize: '30px',
-    fontFamily: 'Helvetica'
+      fontFamily: 'Helvetica',
+      cursor: 'pointer'
   }
   if (value === 'x')
     style.backgroundColor = 'rgb(124,252,0)'

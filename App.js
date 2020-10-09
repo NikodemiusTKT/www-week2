@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {render} from 'react-dom'
 import { css } from "emotion";
 import { cloneDeep } from 'lodash';
 import Board from './components/Board';
@@ -11,19 +12,21 @@ const MIN_TO_WIN = 5
 const ROW_ARR = new Array(ROWS).fill(null)
 const COL_ARR = new Array(COLS).fill(null)
 const GRID = ROW_ARR.map(x => COL_ARR.slice())
-
+const OPTIONS = 12
+const SQUARE = 60
   const appStyle = css({
     textAlign: 'center'
   })
 const START_STATE = {
+  squareSize: SQUARE,
   currentPlayer: 'x',
   grid: cloneDeep(GRID),
   gameOver: false,
-  winLimit: 5,
-  boardSize: 5,
-  options: [3,4,5,6,7,8,9,10,12,13,14],
+  winLimit: MIN_TO_WIN,
+  boardSize: MIN_TO_WIN,
+  options: Array.from(new Array(OPTIONS), (x, i) => i + 3),
   timerValue: 0,
-  timer: null
+  timer: null,
 }
 
 
@@ -86,18 +89,18 @@ const compareToRest = ({ currentItem, gridItems, winString }) => {
     const arrays = [N, NE, E, SE, S, SW, W, NW];
     const winningArrays = arrays.filter(arr => arr.length >= winString);
     return winningArrays.length > 0;
-  }
+  };
+    let hasWon = false;
+    let i = 0;
 
-  let hasWon = false;
-  let i = 0;
+    while (i < gridItems.length && !hasWon) {
+        hasWon = applyDirection(gridItems[i]);
+        i++;
+    }
 
-  while (i < gridItems.length && !hasWon) {
-    hasWon = applyDirection(gridItems[i]);
-    i++;
-  }
+    return hasWon;
+};
 
-  return hasWon;
-}
 
 const checkWin = ({ gridItems, winString }) => {
   let hasWon = false;
@@ -140,15 +143,14 @@ class App extends Component {
   }
 // Function for changing player and updating progres bar value after 10 seconds
   progressionTimer = () => {
-    console.log(this.state.timerValue)
     if (this.state.timerValue == 100) {
-      const nextPlayer = this.state.currentPlayer === 'x' ? 'o' : 'x';
-      var newTimer = clearInterval(this.state.timer);
-      this.setState({
-        currentPlayer: nextPlayer,
-        timerValue: 0,
-        timer: newTimer
-      });
+        const nextPlayer = this.state.currentPlayer === 'x' ? 'o' : 'x';
+        this.setState({
+            currentPlayer: nextPlayer,
+            timerValue: 0,
+            timer: clearInterval(this.state.timer)
+        })
+        this.setState({timer: setInterval(this.progressionTimer,1000)})
     } else {
       this.setState({
         timerValue: this.state.timerValue + 10,
@@ -156,8 +158,11 @@ class App extends Component {
     }
   }
   turnChangeTimer = () => {
-    const startTimer = setInterval(this.progressionTimer,1000)
-    this.setState({timerValue: 0, timer: startTimer})
+    this.setState({timer: clearInterval(this.state.timer)})
+      this.setState({
+          timerValue: 0,
+          timer: setInterval(this.progressionTimer,1000)
+      })
   }
   handleClick = ({rowIndex, colIndex}) => {
     const { currentPlayer, grid, gameOver,winLimit } = this.state
@@ -167,15 +172,16 @@ class App extends Component {
       cloneGrid[rowIndex][colIndex] = currentPlayer;
       const gridItems = mapGridIndexes({grid: cloneGrid, value: currentPlayer})
       const hasWon = checkWin({gridItems, winString: winLimit})
-      this.turnChangeTimer();
+      if (!hasWon) this.turnChangeTimer();
       this.setState({
         currentPlayer: nextPlayer,
         grid: cloneGrid,
         gameOver: hasWon,
       })
-      if (hasWon)
-
-      alert(`Player ${currentPlayer === 'x' ? 1 : 2} won!`)
+        if (hasWon) {
+            clearInterval(this.state.timer);
+            alert(`Player ${currentPlayer === 'x' ? 1 : 2} won!`)
+        }
     }
   }
   resetGame = () => {
@@ -198,7 +204,13 @@ class App extends Component {
     return (
       <div>
       <h1>React.js Tic-Tac-Toe</h1>
-        <Board onClick={this.handleClick} rows={grid} timerValue={this.state.timerValue}/>
+            <Board
+        onClick={this.handleClick}
+        rows={grid}
+        timerValue={this.state.timerValue}
+        isGameOver={this.state.gameOver}
+        squareSize={this.state.squareSize}
+            />
       <button style={{marginTop:"10px"}} onClick={this.resetGame}>Reset</button>
         <select value={this.state.boardSize} onChange={this.changeGridSize}>
           {this.state.options.map((opt, index) =>
