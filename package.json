@@ -11,9 +11,7 @@
     "lodash": "^4.17.15",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-emotion": "^10.0.0"
-  },
-  "devDependencies": {
+    "react-emotion": "^10.0.0",
     "@babel/core": "^7.6.2",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
@@ -22,8 +20,11 @@
     "parcel-bundler": "^1.12.3",
     "react-hot-loader": "^4.12.13"
   },
+  "devDependencies": {
+  },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html --port 8080",
+    "build": "parcel build index.html"
   },
   "author": "Teemu Tanninen",
   "license": "ISC"
